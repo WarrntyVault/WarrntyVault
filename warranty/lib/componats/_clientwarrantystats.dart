@@ -37,7 +37,7 @@ class ClientWarrantyStats extends StatelessWidget {
 
               Text("Total Warranties Price",style: TextStyle(fontSize: 14 , color: Color(0xff5B42CF) ),),
               Padding(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.fromLTRB(0, 16, 90, 0),
                 child: Text("Price"),
               ),
             ],
@@ -61,6 +61,7 @@ class ClientWarrantyStats extends StatelessWidget {
           height: 180,
           width: 180,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
               Text("Total Warranties",style: TextStyle(fontSize: 14 , color: Color(0xff5B42CF) ),),
               SizedBox(height: 20,),

@@ -8,8 +8,9 @@ class WarrantyBreif extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: const [
-        Text("Refernce Number", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),),
+        Text("Refernce Number", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,)),
         Text("#10023",style: TextStyle(fontSize: 12,color: Colors.grey), ),
         Text("Type", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),),
         Text("Device",style: TextStyle(fontSize: 12,color: Colors.grey), ),

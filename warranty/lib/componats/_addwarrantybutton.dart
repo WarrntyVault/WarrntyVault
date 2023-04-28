@@ -16,7 +16,6 @@ class AddWarrantyButton extends StatelessWidget {
             offset: Offset(0, 4), // changes position of shadow
           ),
         ],
-
         color: Color(0xff5B42D1),
         borderRadius: BorderRadius.all(
           Radius.circular(30),

@@ -13,7 +13,6 @@ class RecentWarrntyContainer extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.3),
-
             blurRadius: 7,
             offset: Offset(0, 4), // changes position of shadow
           ),
@@ -41,11 +40,13 @@ class RecentWarrntyContainer extends StatelessWidget {
               children: [
                 const Text("Warranty title"),
                 const SizedBox(
-                  height: 10,
+                  height: 2,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
+                    
+                    
                     Text(
                       "Date",
                       style: TextStyle(fontSize: 12),
@@ -58,6 +59,7 @@ class RecentWarrntyContainer extends StatelessWidget {
                       "Status",
                       style: TextStyle(fontSize: 12),
                     ),
+                    Icon(Icons.arrow_forward, color: Colors.black, size: 30,)
 
 
                   ],
