@@ -15,16 +15,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: ListView(
-            children: [
-              const DashboardTitle(),
-              const SizedBox(
-                height: 30,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+        child: ListView(
+          children: [
+            const DashboardTitle(),
+            const SizedBox(
+              height: 30,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
                     const AddWarrantyButton(),
@@ -35,21 +35,16 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height:20,
-              ),
-              const ClientWarrantyStats(),
-              const SizedBox(
-                height: 20,
-              ),
-              RecentWarrnties(),
-
-
-
-
-
-            ],
-          ),
+            ),
+            const SizedBox(
+              height:20,
+            ),
+            const ClientWarrantyStats(),
+            const SizedBox(
+              height: 20,
+            ),
+            RecentWarrnties(),
+          ],
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warranty/pages/dispaly_warranty_page.dart';
 
 class RecentWarrntyContainer extends StatelessWidget {
   const RecentWarrntyContainer({
@@ -22,7 +23,7 @@ class RecentWarrntyContainer extends StatelessWidget {
           Radius.circular(30),
         ),
       ),
-      height: 80,
+      height: 100,
       width: 400,
       child: Row(
         children: [
@@ -44,9 +45,7 @@ class RecentWarrntyContainer extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    
-                    
+                  children:  [
                     Text(
                       "Date",
                       style: TextStyle(fontSize: 12),
@@ -59,10 +58,17 @@ class RecentWarrntyContainer extends StatelessWidget {
                       "Status",
                       style: TextStyle(fontSize: 12),
                     ),
-                    Icon(Icons.arrow_forward, color: Colors.black, size: 30,)
+                    IconButton(
+                      icon: Icon(Icons.arrow_forward, color: Colors.black, size: 30,),
+                      onPressed: (){
+                      Navigator.push(
+                          context, MaterialPageRoute(
+                          builder: (context) => DisplayWarrantyPage()
+                      )
+                      ); },)
 
+                    ],
 
-                  ],
                 ),
               ],
             ),

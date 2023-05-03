@@ -19,7 +19,7 @@ class RecentWarrnties extends StatelessWidget {
           ),
         ],
         color: Colors.white,
-        borderRadius: BorderRadius.circular(30),),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(32), topLeft: Radius.circular(32), bottomLeft: Radius.circular(0), bottomRight: Radius.circular(0),),),
       child: Column(
         children: [
           const SizedBox(height: 20,),

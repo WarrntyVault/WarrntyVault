@@ -2,6 +2,9 @@ import 'package:warranty/pages/camera_page.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
+import '../componats/_camerabutton.dart';
+import '../componats/_fillwarrantyInfo.dart';
+import '../componats/_scantitle.dart';
 import 'camera_page.dart';
 
 class ScanPage extends StatefulWidget {
@@ -51,18 +54,7 @@ class _ScanPageState extends State<ScanPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                SizedBox(
-                  width: 200,
-                  height: 40,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff5B42D1),
-                      shape: const StadiumBorder(),
-                    ),
-                    child: const Text("Confirm"),
-                  ),
-                )
+
               ],
             ),
           )),
@@ -70,156 +62,6 @@ class _ScanPageState extends State<ScanPage> {
   }
 }
 
-class FillWarrantyInfo extends StatelessWidget {
-  const FillWarrantyInfo({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(32),
-                ),
-              ),
-              width: 225,
-              child: const TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xffE2DCFF),
-                  border: InputBorder.none,
 
-                  hintText: 'Brand',
-                ),
-              ),
-            ),
-            Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: const BoxDecoration(
 
-                borderRadius: BorderRadius.all(
-                  Radius.circular(32),
-
-                ),
-              ),
-              width: 225,
-              child: const TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xffE2DCFF),
-                  border: InputBorder.none,
-                  hintText: 'Type',
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-          clipBehavior: Clip.hardEdge,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(32),
-            ),
-          ),
-          child: const TextField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Color(0xffE2DCFF),
-              border: InputBorder.none,
-              hintText: 'Phone',
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-          clipBehavior: Clip.hardEdge,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(32),
-            ),
-          ),
-          child: const TextField(
-            decoration: InputDecoration(
-              icon: Icon(
-                Icons.date_range,
-                color: Colors.black,
-              ),
-              filled: true,
-              fillColor: Color(0xffE2DCFF),
-              border: InputBorder.none,
-              hintText: 'Start Date',
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-          clipBehavior: Clip.hardEdge,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(32),
-            ),
-          ),
-          child: const TextField(
-            decoration: InputDecoration(
-              icon: Icon(
-                Icons.date_range,
-                color: Colors.black,
-              ),
-              filled: true,
-              fillColor: Color(0xffE2DCFF),
-              border: InputBorder.none,
-              hintText: 'Expiration Date',
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class CameraButton extends StatelessWidget {
-  const CameraButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () async {
-        await availableCameras()
-            .then((value) => Navigator.push(context, MaterialPageRoute(builder: (_) => CameraPage(cameras: value))));
-      },
-      icon: const Icon(Icons.document_scanner, size: 30, color: Color(0xff5B42D1),),
-    );
-  }
-}
-
-class ScanTitle extends StatelessWidget {
-  const ScanTitle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text("Add Warranty",textAlign: TextAlign.center,style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),),
-      ],
-    );
-  }
-}

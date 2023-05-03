@@ -7,16 +7,19 @@ class DashboardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Text(
-          "DASHBORAD",
-          style: TextStyle(fontSize: 30),
-        ),
-        Icon(Icons.person_rounded, size: 50,),
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text(
+            "DASHBORAD",
+            style: TextStyle(fontSize: 30),
+          ),
+          Icon(Icons.person_rounded, size: 50,),
 
-      ],
+        ],
+      ),
     );
   }
 }
