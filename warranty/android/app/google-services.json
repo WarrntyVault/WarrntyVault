@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039816346946",
+    "project_id": "warrantyfault",
+    "storage_bucket": "warrantyfault.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039816346946:android:9169b6408e8d766a1f8cdb",
+        "android_client_info": {
+          "package_name": "com.example.warranty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039816346946-6gfia0ogqbbd78gh5gnnmeaffsr36jvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeQFG_OqqVpAnPu3JlMap9hYT0_zXtZYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039816346946-6gfia0ogqbbd78gh5gnnmeaffsr36jvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

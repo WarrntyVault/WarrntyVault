@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 
 class FillWarrantyInfo extends StatefulWidget {
   const FillWarrantyInfo({
@@ -11,20 +13,31 @@ class FillWarrantyInfo extends StatefulWidget {
 }
 
 class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
-
-
-  //company info
-  TextEditingController companyController = TextEditingController();
-  TextEditingController contactnumberController = TextEditingController();
-  TextEditingController typeController = TextEditingController();
-  TextEditingController referenceNumberController = TextEditingController();
   //client info
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController startdateController = TextEditingController();
-  TextEditingController enddateController = TextEditingController();
+  final nameController = TextEditingController();
+  final phoneController = TextEditingController();
+  //company info
+  final companyController = TextEditingController();
+  final contactNumberController = TextEditingController();
+  //warranty info
+  final typeController = TextEditingController();
+  final referenceNumberController = TextEditingController();
+  final startDateController = TextEditingController();
+  final expirationDateController = TextEditingController();
 
   @override
+  void dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+    companyController.dispose();
+    contactNumberController.dispose();
+    typeController.dispose();
+    referenceNumberController.dispose();
+    startDateController.dispose();
+    expirationDateController.dispose();
+    super.dispose();
+  }
+
   Future<void> warrantySetup(
       String name,
       String phone,
@@ -33,18 +46,19 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
       String type,
       String referenceNumber,
       String startDate,
-      String endDate,
-      )async{
+      String expirationDate,
+      ) async {
+
     CollectionReference warranties = FirebaseFirestore.instance.collection("Warranties");
     warranties.add({
-      'clientName': nameController.text,
-      'clientNumber': phoneController.text,
-      'company': companyController.text,
-      'contactNumber': contactnumberController.text,
-      'type': typeController.text,
-      'referenceNumber': referenceNumberController.text,
-      'startDate': startdateController.text,
-      'expirationDate': enddateController.text,
+      'clientName': name,
+      'clientNumber': phone,
+      'company': company,
+      'contactNumber': contactNumber,
+      'type': type,
+      'referenceNumber': referenceNumber,
+      'startDate': startDate,
+      'expirationDate': expirationDate,
     });
   }
 
@@ -64,18 +78,18 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                 ),
               ),
               width: 225,
-              child:  TextField(controller: nameController ,
+              child: TextField(
+                controller: nameController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   border: InputBorder.none,
-
                   hintText: 'Full Name',
                 ),
               ),
@@ -83,22 +97,20 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             Container(
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
-
                 borderRadius: BorderRadius.all(
                   Radius.circular(32),
-
                 ),
               ),
               width: 225,
-              child:  TextField(
-              controller: phoneController,
+              child: TextField(
+                controller: phoneController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   border: InputBorder.none,
@@ -122,19 +134,18 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                 ),
               ),
               width: 225,
-              child:  TextField(
-              controller: companyController,
+              child: TextField(
+                controller: companyController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   border: InputBorder.none,
-
                   hintText: 'Company',
                 ),
               ),
@@ -142,22 +153,20 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             Container(
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
-
                 borderRadius: BorderRadius.all(
                   Radius.circular(32),
-
                 ),
               ),
               width: 225,
-              child:  TextField(
-    controller: contactnumberController,
+              child: TextField(
+                controller: contactNumberController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.purple),
+                    borderSide: const BorderSide(width: 1, color: Colors.purple),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   border: InputBorder.none,
@@ -177,15 +186,15 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
               Radius.circular(32),
             ),
           ),
-          child:  TextField(
+          child: TextField(
             controller: referenceNumberController,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               border: InputBorder.none,
@@ -196,7 +205,6 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
         const SizedBox(
           height: 10,
         ),
-
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
@@ -204,15 +212,15 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
               Radius.circular(32),
             ),
           ),
-          child:  TextField(
-    controller: typeController,
+          child: TextField(
+            controller: typeController,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               border: InputBorder.none,
@@ -230,19 +238,19 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
               Radius.circular(32),
             ),
           ),
-          child:  TextField(
-            controller: startdateController,
+          child: TextField(
+            controller: startDateController,
             decoration: InputDecoration(
-              icon: Icon(
+              icon: const Icon(
                 Icons.date_range,
                 color: Colors.black,
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               border: InputBorder.none,
@@ -259,21 +267,20 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             borderRadius: BorderRadius.all(
               Radius.circular(32),
             ),
-
           ),
-          child:  TextField(
-            controller: enddateController,
+          child: TextField(
+            controller: expirationDateController,
             decoration: InputDecoration(
-              icon: Icon(
+              icon: const Icon(
                 Icons.date_range,
                 color: Colors.black,
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: const BorderSide(width: 1, color: Colors.purple),
                 borderRadius: BorderRadius.circular(32),
               ),
               border: InputBorder.none,
@@ -281,34 +288,33 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ),
         ),
-        SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         SizedBox(
           width: 200,
           height: 40,
           child: ElevatedButton(
             onPressed: () {
-                setState(() {
-                  warrantySetup(
-                    nameController.text,
-                    phoneController.text,
-                    companyController.text,
-                    contactnumberController.text,
-                    referenceNumberController.text,
-                    typeController.text,
-                    startdateController.text,
-                    enddateController.text,
+              setState(() {
+                warrantySetup(
+                  nameController.text,
+                  phoneController.text,
+                  companyController.text,
+                  contactNumberController.text,
+                  typeController.text,
+                  referenceNumberController.text,
+                  startDateController.text,
+                  expirationDateController.text,
+                ).then((value) {
+                  //show a success message to the user
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Warranty information added.'),
+                    ),
                   );
-                  name=nameController.text;
-                  phone=phoneController.text;
-                  company= companyController.text;
-                  contactNumber=contactnumberController.text;
-                  referenceNumber=referenceNumberController.text;
-                  type=typeController.text;
-                  startDate=startdateController.text;
-                  endDate=enddateController.text;
                 });
-
-                
+              });
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff5B42D1),
@@ -317,7 +323,6 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             child: const Text("Confirm"),
           ),
         )
-
       ],
     );
   }
