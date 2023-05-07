@@ -1,10 +1,66 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:warranty/models/_signinBtn.dart';
 import 'package:warranty/pages/getStarted_page.dart';
 import 'package:warranty/pages/register_page.dart';
 
+import '../componats/_BottomNavBarState.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+
+class LoginPage extends StatefulWidget {
+
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _signInWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+      print('User ID: ${userCredential.user!.uid}');
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('There is no Email with '+ _emailController.text.trim()),
+            content: Text('Please enter an exsiting Email.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      } else if (e.code == 'wrong-password') {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Wrong Password'),
+            content: Text('Please enter the correct password.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +122,7 @@ class LoginPage extends StatelessWidget {
                     height: 50,
                   ),
 
+
                   Container(
                     clipBehavior: Clip.hardEdge,
                     decoration: const BoxDecoration(
@@ -74,7 +131,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     child: TextField(
-                      controller: null,
+                      controller: _emailController,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(width: 1, color: Colors.purple),
@@ -85,7 +142,7 @@ class LoginPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(32),
                         ),
                         border: InputBorder.none,
-                        hintText: 'Username',
+                        hintText: 'Email',
                       ),
                     ),
                   ),
@@ -100,7 +157,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     child: TextField(
-                      controller: null,
+                      controller: _passwordController,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(width: 1, color: Colors.purple),
@@ -137,6 +194,8 @@ class LoginPage extends StatelessWidget {
                     height: 40,
                     child: ElevatedButton(
                       onPressed: () {
+                        _signInWithEmailAndPassword();
+
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -146,6 +205,7 @@ class LoginPage extends StatelessWidget {
                       child: const Text("SIGN IN", style: TextStyle(fontSize: 25 , ),),
                     ),
                   ),
+
                   const SizedBox(
                     height: 5,
                   ),
@@ -195,3 +255,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
