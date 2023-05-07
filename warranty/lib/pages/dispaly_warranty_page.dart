@@ -18,14 +18,14 @@ class DisplayWarrantyPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text("Client Info"),
+              const Text("Client Info", style: TextStyle(fontSize: 20, fontWeight:FontWeight.bold ),),
               const SizedBox(
                 height: 10,
               ),
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: const Color(0xff8B95CA),
+                    color: const Color(0xffffffff),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(32),
                     ),
@@ -40,22 +40,23 @@ class DisplayWarrantyPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text("Name:"),
-                    Text("Phone Number:"),
+                    Text("Name: ", style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(height: 20,),
+                    Text("Phone Number: ", style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
                   ],
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const Text("Company Details"),
+              const Text("Company Details",style: TextStyle(fontSize: 20, fontWeight:FontWeight.bold ),),
               const SizedBox(
                 height: 10,
               ),
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: const Color(0xff8B95CA),
+                    color: const Color(0xffffffff),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(32),
                     ),
@@ -70,22 +71,25 @@ class DisplayWarrantyPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text("Company:"),
-                    Text("Contact Number:"),
+                    Text("Company:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Contact Number:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
                   ],
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const Text("Warranty Details"),
+              const Text("Warranty Details",style: TextStyle(fontSize: 20, fontWeight:FontWeight.bold ),),
               const SizedBox(
                 height: 10,
               ),
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: const Color(0xff8B95CA),
+                    color: const Color(0xffffffff),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(32),
                     ),
@@ -96,25 +100,44 @@ class DisplayWarrantyPage extends StatelessWidget {
                         blurRadius: 7,
                       ),
                     ]),
-                height: 400,
+                height: 250,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text("Type:"),
-                    Text("Reference Number:"),
-                    Text("Status:"),
-                    Text("Start Date:"),
-                    Text("Expiration Date:"),
+                    Text("Type:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Reference Number:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Status:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Start Date:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Expiration Date:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                    SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
+              const Text("Picture",style: TextStyle(fontSize: 20, fontWeight:FontWeight.bold ),),
+              const SizedBox(
+                height: 10,
+              ),
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: const Color(0xff8B95CA),
+                    color: const Color(0xffffffff),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(32),
                     ),
@@ -128,6 +151,9 @@ class DisplayWarrantyPage extends StatelessWidget {
                 height: 400,
                 child: const Placeholder(),
               ),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
@@ -135,3 +161,4 @@ class DisplayWarrantyPage extends StatelessWidget {
     );
   }
 }
+

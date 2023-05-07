@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:warranty/pages/dispaly_warranty_page.dart';
 import 'package:warranty/pages/getStarted_page.dart';
 import 'package:warranty/pages/home_page.dart';
 import 'package:flutter/material.dart';
