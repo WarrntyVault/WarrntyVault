@@ -1,10 +1,28 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:warranty/pages/login_page.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
+  @override
   Widget build(BuildContext context) {
+
+    void _logout() async {
+      await FirebaseAuth.instance.signOut();
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+              (route) => false);
+    }
+
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -24,7 +42,7 @@ class ProfilePage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Text("Username"),
+                    Text('Name'),
                   ],
                 ),
                 const SizedBox(
@@ -96,7 +114,11 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                TextButton(onPressed: () {}, child: const Text("Log Out",style: TextStyle(color: Colors.black)))
+                TextButton(
+                    onPressed: () => _logout(),
+                    child: const Text("Log Out",
+                        style: TextStyle(
+                            color: Colors.black)))
               ],
             ),
           )),
