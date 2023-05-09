@@ -24,34 +24,34 @@ class _ScanPageState extends State<ScanPage> {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: ListView(
-              children: [
-                const ScanTitle(),
-                const SizedBox(
+              children: const [
+                ScanTitle(),
+                SizedBox(
                   height: 10,
                 ),
-                const Divider(color: Colors.black, thickness: 1,),
-                const SizedBox(
+                Divider(color: Colors.black, thickness: 1,),
+                SizedBox(
                   height: 20,
                 ),
-                const Placeholder(
+                Placeholder(
                   color: Color(0xffE2DCFF),
                   fallbackHeight: 300,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-                const CameraButton(),
-                const SizedBox(
+                CameraButton(),
+                SizedBox(
                   height: 20,
                 ),
-                const Divider(
+                Divider(
                   color: Colors.black,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-                const FillWarrantyInfo(),
-                const SizedBox(
+                FillWarrantyInfo(),
+                SizedBox(
                   height: 20,
                 ),
 

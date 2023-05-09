@@ -32,54 +32,11 @@ class _GetStartedPageState extends State<GetStartedPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      height: 400,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('lib/images/img.png'),
-                        ),
-                      ),
-                    ),
+                    DisplayImage(),
                     const SizedBox(
                       height: 50,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          const Text(
-                            "Never lose track of your warranties again with our innovative warranty vault app!",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(0xff3755F4),
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          SizedBox(
-                            width: 200,
-                            height: 40,
-                            child: ElevatedButton(
-                              onPressed: _navigateToLoginPage,
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xff5B42D1),
-                                shape: const StadiumBorder(),
-                              ),
-                              child: const Text(
-                                "GET STARTED",
-                                style: TextStyle(
-                                  fontSize: 25,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
+                    DisplayGetStartedText()
                   ],
                 ),
               ],
@@ -95,5 +52,58 @@ class _GetStartedPageState extends State<GetStartedPage> {
         ),
       ),
     );
+  }
+
+  // Components of GetStrated Page
+
+  Padding DisplayGetStartedText() {
+    return Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const Text(
+                          "Never lose track of your warranties again with our innovative warranty vault app!",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xff3755F4),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        SizedBox(
+                          width: 200,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: _navigateToLoginPage,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff5B42D1),
+                              shape: const StadiumBorder(),
+                            ),
+                            child: const Text(
+                              "GET STARTED",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+  }
+
+  Container DisplayImage() {
+    return Container(
+                    height: 400,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('lib/images/img.png'),
+                      ),
+                    ),
+                  );
   }
 }

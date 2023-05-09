@@ -38,6 +38,10 @@ class NotificationPage extends StatelessWidget {
   }
 }
 
+
+// Components of Notification Page
+
+
 class NotificationCard extends StatelessWidget {
   const NotificationCard({
     super.key,

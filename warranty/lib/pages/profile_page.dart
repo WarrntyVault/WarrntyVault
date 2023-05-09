@@ -33,18 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(
                   height: 20,
                 ),
-                Column(
-                  children: const [
-                    Icon(
-                      Icons.person_rounded,
-                      size: 80,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text('Name'),
-                  ],
-                ),
+                DisplayName(),
                 const SizedBox(
                   height: 20,
                 ),
@@ -55,60 +44,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
-                      width: 300,
-                      height: 40,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffE2DCFF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        child: const Text("Manage Profile", style: TextStyle(color: Colors.black),),
-                      ),
-                    ),
+                    ManageProfileBtn(),
                     const SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
-                      width: 300,
-                      height: 40,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffffffFF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            side: const BorderSide(
-                              color: Color(0xff5B42CF),
-                            ),
-                          ),
-                        ),
-                        child: const Text("Change Password",style: TextStyle(color: Colors.black),),
-                      ),
-                    ),
+                    ChangePasswordBtn(),
                     const SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
-                      width: 300,
-                      height: 40,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffffffFF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            side: const BorderSide(
-                              color: Color(0xff5B42CF),
-                            ),
-                          ),
-                        ),
-                        child: const Text("Delete Account",style: TextStyle(color: Colors.black)),
-                      ),
-                    )
+                    DeleteAccountBtn()
                   ],
                 ),
                 const SizedBox(
@@ -123,6 +67,81 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           )),
     );
+  }
+
+
+  // Componats of Profile Page
+
+  SizedBox DeleteAccountBtn() {
+    return SizedBox(
+                    width: 300,
+                    height: 40,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffffffFF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          side: const BorderSide(
+                            color: Color(0xff5B42CF),
+                          ),
+                        ),
+                      ),
+                      child: const Text("Delete Account",style: TextStyle(color: Colors.black)),
+                    ),
+                  );
+  }
+
+  SizedBox ChangePasswordBtn() {
+    return SizedBox(
+                    width: 300,
+                    height: 40,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffffffFF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          side: const BorderSide(
+                            color: Color(0xff5B42CF),
+                          ),
+                        ),
+                      ),
+                      child: const Text("Change Password",style: TextStyle(color: Colors.black),),
+                    ),
+                  );
+  }
+
+  SizedBox ManageProfileBtn() {
+    return SizedBox(
+                    width: 300,
+                    height: 40,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffE2DCFF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      child: const Text("Manage Profile", style: TextStyle(color: Colors.black),),
+                    ),
+                  );
+  }
+
+  Column DisplayName() {
+    return Column(
+                children: const [
+                  Icon(
+                    Icons.person_rounded,
+                    size: 80,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text('Name'),
+                ],
+              );
   }
 }
 

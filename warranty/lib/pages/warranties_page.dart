@@ -220,31 +220,9 @@ class _DisplayWarrantyState extends State<DisplayWarranty> {
 
 
 
-/////////////////////////////////////////
-
-/*class ValidExpiredButtons extends StatelessWidget {
-  const ValidExpiredButtons({
-    super.key,
-  });
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const [
-
-        MyButton(title: "Valid"),
-        MyButton(title: "Expired"),
 
 
 
-
-
-      ],
-    );
-  }
-} */
 
 
 /////////////////////////////////////////////////////////////////////////

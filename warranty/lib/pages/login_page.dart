@@ -69,14 +69,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
 
-            SizedBox(
-              height: 100,
-              child: Image.asset(
-                'lib/images/img.png', // replace with your image path
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.topCenter,// adjust image fit to container,
-              ),
-            ),
+            DisplayLoginImage(),
 
             const SizedBox(
               height: 50,
@@ -122,55 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
 
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(32),
-                      ),
-                    ),
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 1, color: Colors.purple),
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 1, color: Colors.purple),
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        border: InputBorder.none,
-                        hintText: 'Email',
-                      ),
-                    ),
-                  ),
+                  EmailInput(),
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(32),
-                      ),
-                    ),
-                    child: TextField(
-                      controller: _passwordController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 1, color: Colors.purple),
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 1, color: Colors.purple),
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        border: InputBorder.none,
-                        hintText: 'Password',
-                      ),
-                    ),
-                  ),
+                  PasswordInput(),
                   const SizedBox(
                     height: 50,
                   ),
@@ -188,59 +137,13 @@ class _LoginPageState extends State<LoginPage> {
                     height: 5,
                   ),
 
-                  SizedBox(
-                    width: 200,
-                    height: 40,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _signInWithEmailAndPassword();
-
-
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff5B42D1),
-                        shape: const StadiumBorder(),
-                      ),
-                      child: const Text("SIGN IN", style: TextStyle(fontSize: 25 , ),),
-                    ),
-                  ),
+                  SignBtn(),
 
                   const SizedBox(
                     height: 5,
                   ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children:  [
-                      const Text("Don't have an account?",
-                        style: TextStyle(
-                          fontSize: 15 ,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.right,
-
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-
-                       InkWell(
-                         child: const Text("Register",
-                          style: TextStyle(
-                            fontSize: 15 ,
-                            fontWeight: FontWeight.normal,
-                            color: Color(0xff5B42CF),
-                          ),
-                          textAlign: TextAlign.right,
-
-                      ),
-                         onTap: (){
-                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const RegisterPage()));
-                         },
-                       ),
-                    ],
-                  ),
+                  DontHaveAccount(context),
                 ],
               ),
             )
@@ -252,6 +155,129 @@ class _LoginPageState extends State<LoginPage> {
 
       ),
     );
+  }
+
+
+
+
+  // Components of Login Page
+
+
+  Row DontHaveAccount(BuildContext context) {
+    return Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children:  [
+                    const Text("Don't have an account?",
+                      style: TextStyle(
+                        fontSize: 15 ,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.right,
+
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+
+                     InkWell(
+                       child: const Text("Register",
+                        style: TextStyle(
+                          fontSize: 15 ,
+                          fontWeight: FontWeight.normal,
+                          color: Color(0xff5B42CF),
+                        ),
+                        textAlign: TextAlign.right,
+
+                    ),
+                       onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=> const RegisterPage()));
+                       },
+                     ),
+                  ],
+                );
+  }
+
+  SizedBox SignBtn() {
+    return SizedBox(
+                  width: 200,
+                  height: 40,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _signInWithEmailAndPassword();
+
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff5B42D1),
+                      shape: const StadiumBorder(),
+                    ),
+                    child: const Text("SIGN IN", style: TextStyle(fontSize: 25 , ),),
+                  ),
+                );
+  }
+
+  Container PasswordInput() {
+    return Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(32),
+                    ),
+                  ),
+                  child: TextField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.purple),
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.purple),
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      border: InputBorder.none,
+                      hintText: 'Password',
+                    ),
+                  ),
+                );
+  }
+
+  Container EmailInput() {
+    return Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(32),
+                    ),
+                  ),
+                  child: TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.purple),
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.purple),
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      border: InputBorder.none,
+                      hintText: 'Email',
+                    ),
+                  ),
+                );
+  }
+
+  SizedBox DisplayLoginImage() {
+    return SizedBox(
+            height: 100,
+            child: Image.asset(
+              'lib/images/img.png', // replace with your image path
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.topCenter,// adjust image fit to container,
+            ),
+          );
   }
 }
 
