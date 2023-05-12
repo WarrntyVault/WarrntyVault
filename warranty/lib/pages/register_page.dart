@@ -370,6 +370,7 @@ Container FirstNameInput() {
                       );
 }
 
+
 SizedBox DisplayRegisterImage() {
   return SizedBox(
               height: 100,

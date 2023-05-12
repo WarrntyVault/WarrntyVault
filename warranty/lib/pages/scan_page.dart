@@ -1,7 +1,6 @@
 import 'package:warranty/pages/camera_page.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
 import '../componats/_camerabutton.dart';
 import '../componats/_fillwarrantyInfo.dart';
 import '../componats/_scantitle.dart';

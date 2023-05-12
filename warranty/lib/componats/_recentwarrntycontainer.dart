@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:warranty/pages/dispaly_warranty_page.dart';
 
+import '../models/AppIcons.dart';
+
 class RecentWarrntyContainer extends StatelessWidget {
   const RecentWarrntyContainer({
     super.key,
@@ -15,11 +17,11 @@ class RecentWarrntyContainer extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(0.3),
             blurRadius: 7,
-            offset: Offset(0, 4), // changes position of shadow
+            offset: const Offset(0, 4), // changes position of shadow
           ),
         ],
-        color: Color(0xffE2DCFF),
-        borderRadius: BorderRadius.all(
+        color: const Color(0xffE2DCFF),
+        borderRadius: const BorderRadius.all(
           Radius.circular(30),
         ),
       ),
@@ -28,7 +30,7 @@ class RecentWarrntyContainer extends StatelessWidget {
       child: Row(
         children: [
           const Icon(
-            Icons.document_scanner,
+            AppIcons.document_scanner,
             size: 32,
 
           ),
@@ -46,24 +48,24 @@ class RecentWarrntyContainer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children:  [
-                    Text(
+                    const Text(
                       "Date",
                       style: TextStyle(fontSize: 12),
                     ),
-                    Text(
+                    const Text(
                       "Total bill",
                       style: TextStyle(fontSize: 12),
                     ),
-                    Text(
+                    const Text(
                       "Status",
                       style: TextStyle(fontSize: 12),
                     ),
                     IconButton(
-                      icon: Icon(Icons.arrow_forward, color: Colors.black, size: 30,),
+                      icon: const Icon(AppIcons.arrow_forward, color: Colors.black, size: 30,),
                       onPressed: (){
                       Navigator.push(
                           context, MaterialPageRoute(
-                          builder: (context) => DisplayWarrantyPage()
+                          builder: (context) => const DisplayWarrantyPage()
                       )
                       ); },)
 

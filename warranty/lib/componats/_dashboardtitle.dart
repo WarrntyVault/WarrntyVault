@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/AppIcons.dart';
+
 class DashboardTitle extends StatelessWidget {
   const DashboardTitle({
     super.key,
@@ -16,7 +18,7 @@ class DashboardTitle extends StatelessWidget {
             "DASHBORAD",
             style: TextStyle(fontSize: 30),
           ),
-          Icon(Icons.person_rounded, size: 50,),
+          Icon(AppIcons.person_rounded, size: 50,),
 
         ],
       ),

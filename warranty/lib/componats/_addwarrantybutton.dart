@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:warranty/pages/scan_page.dart';
 
+import '../models/AppIcons.dart';
+
 class AddWarrantyButton extends StatelessWidget {
   const AddWarrantyButton({
     super.key,
@@ -38,7 +40,7 @@ class AddWarrantyButton extends StatelessWidget {
                 ),
               ),
             ),
-            const Icon(Icons.add, color: Colors.white, ),
+            const Icon(AppIcons.add, color: Colors.white, ),
           ],
         ),
       ),

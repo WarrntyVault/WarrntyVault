@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/AppIcons.dart';
+
 class NotificationPage extends StatelessWidget {
   const NotificationPage({Key? key}) : super(key: key);
 
@@ -68,7 +70,7 @@ class NotificationCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: const [
           Icon(
-            Icons.notifications,
+            AppIcons.notifications,
           ),
           SizedBox(width: 10,),
           Text("Please notice that your Bill No. #xxxx soon will expire."),

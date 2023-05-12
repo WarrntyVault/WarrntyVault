@@ -6,6 +6,8 @@ import 'package:warranty/pages/scan_page.dart';
 import 'package:warranty/pages/warranties_page.dart';
 import 'package:flutter/material.dart';
 
+import '../models/AppIcons.dart';
+
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
 
@@ -57,54 +59,54 @@ class _BottomNavBarState extends State<BottomNavBar> {
         bottomBarItems: const [
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.home_filled,
+              AppIcons.home_filled,
               color: Colors.blueGrey,
             ),
             activeItem: Icon(
-              Icons.home_filled,
+              AppIcons.home_filled,
               color: Color(0xff5B42D1),
             ),
           ),
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.library_books,
+              AppIcons.library_books,
               color: Colors.blueGrey,
             ),
             activeItem: Icon(
-              Icons.library_books,
+              AppIcons.library_books,
               color: Color(0xff5B42D1),
             ),
             itemLabel: 'Page 2',
           ),
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.document_scanner,
+              AppIcons.document_scanner,
               color: Colors.blueGrey,
             ),
             activeItem: Icon(
-              Icons.document_scanner,
+              AppIcons.document_scanner,
               color: Color(0xff5B42D1),
             ),
             itemLabel: 'Page 3',
           ),
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.notifications,
+              AppIcons.notifications,
               color: Colors.blueGrey,
             ),
             activeItem: Icon(
-              Icons.notifications,
+              AppIcons.notifications,
               color: Color(0xff5B42D1),
             ),
             itemLabel: 'Page 4',
           ),
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.person,
+              AppIcons.person,
               color: Colors.blueGrey,
             ),
             activeItem: Icon(
-              Icons.person,
+              AppIcons.person,
               color: Color(0xff5B42D1),
             ),
             itemLabel: 'Page 5',

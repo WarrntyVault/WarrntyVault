@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty/pages/login_page.dart';
 
+import '../models/AppIcons.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -133,7 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Column(
                 children: const [
                   Icon(
-                    Icons.person_rounded,
+                    AppIcons.person_rounded,
                     size: 80,
                   ),
                   SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warranty/models/AppIcons.dart';
 
 import '../componats/_customButton.dart';
 
@@ -81,7 +82,7 @@ class _DisplayWarrantyState extends State<DisplayWarranty> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(Icons.library_books),
+                const Icon(AppIcons.library_books),
                 Column(
                   children: const [
                     Text("Warranty Title"),
@@ -89,7 +90,7 @@ class _DisplayWarrantyState extends State<DisplayWarranty> {
                   ],
                 ),
                 Icon(
-                  _expanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+                  _expanded ? AppIcons.arrow_drop_up : AppIcons.arrow_drop_down,
                 ),
               ],
             ),

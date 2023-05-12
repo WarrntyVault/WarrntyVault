@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warranty/pages/dispaly_warranty_page.dart';
 
+import '../models/AppIcons.dart';
 import '_warrantybreif.dart';
 import '_warrantytitle.dart';
 
@@ -38,7 +39,7 @@ class WarrantyContainer extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Icon(Icons.document_scanner_rounded , size: 35,color: Colors.white,),
+                  Icon( AppIcons.document_scanner_rounded , size: 35,color: Colors.white,),
                   Icon(Icons.more_horiz, size: 35,color: Colors.black,),
                 ],
               ),

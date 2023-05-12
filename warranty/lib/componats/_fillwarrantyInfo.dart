@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:warranty/componats/_BottomNavBarState.dart';
 import 'package:warranty/pages/scan_page.dart';
 
+import '../models/AppIcons.dart';
+
 
 class FillWarrantyInfo extends StatefulWidget {
   const FillWarrantyInfo({
@@ -245,7 +247,7 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             controller: startDateController,
             decoration: InputDecoration(
               icon: const Icon(
-                Icons.date_range,
+                AppIcons.date_range,
                 color: Colors.black,
               ),
               enabledBorder: OutlineInputBorder(
@@ -275,7 +277,7 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             controller: expirationDateController,
             decoration: InputDecoration(
               icon: const Icon(
-                Icons.date_range,
+                AppIcons.date_range,
                 color: Colors.black,
               ),
               enabledBorder: OutlineInputBorder(
