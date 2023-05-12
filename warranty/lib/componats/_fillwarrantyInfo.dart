@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:warranty/componats/_BottomNavBarState.dart';
+import 'package:warranty/pages/scan_page.dart';
 
 
 class FillWarrantyInfo extends StatefulWidget {
@@ -60,6 +62,7 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
       'startDate': startDate,
       'expirationDate': expirationDate,
     });
+
   }
 
   @override
@@ -314,6 +317,9 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                     ),
                   );
                 });
+              });
+              setState(() {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>  const BottomNavBar()));
               });
             },
             style: ElevatedButton.styleFrom(

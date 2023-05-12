@@ -39,85 +39,8 @@ class WarrantiesPage extends StatelessWidget {
 }
 
 ////////////////////////////////////////////////////////////////
-/*class DisplayWarranty extends StatelessWidget {
-  const DisplayWarranty({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(32),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              offset: const Offset(0, 4),
-              blurRadius: 7,
-            ),
-          ]),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Icon(Icons.library_books),
-              Column(
-                children: const [
-                  Text("Warranty Title"),
-                  Text("Ref No"),
-                ],
-              ),
-              const Icon(Icons.arrow_drop_down),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Placeholder(
-            fallbackHeight: 200,
-            fallbackWidth: 200,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Name:"),
-                  Text("Phone:"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Type:"),
-                  Text("Status:"),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("Start date:"),
-                  Text("Expiration date:"),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-*/
-//////////////////////////////test///////
+
 class DisplayWarranty extends StatefulWidget {
   const DisplayWarranty({
     Key? key,
