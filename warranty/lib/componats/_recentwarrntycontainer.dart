@@ -1,13 +1,21 @@
+import 'package:cloud_firestore_platform_interface/src/timestamp.dart';
 import 'package:flutter/material.dart';
+import 'package:warranty/models/warranty_list.dart';
 import 'package:warranty/pages/dispaly_warranty_page.dart';
 
 import '../models/AppIcons.dart';
 
-class RecentWarrntyContainer extends StatelessWidget {
-  const RecentWarrntyContainer({
-    super.key,
+class RecentWarrantyContainer extends StatefulWidget {
+  const RecentWarrantyContainer({
+    super.key, required this.warranty,
   });
+  final WarrantyList warranty;
 
+  @override
+  State<RecentWarrantyContainer> createState() => _RecentWarrantyContainerState();
+}
+
+class _RecentWarrantyContainerState extends State<RecentWarrantyContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,23 +49,23 @@ class RecentWarrntyContainer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Warranty title"),
+                 Text("Reference: ${widget.warranty.referenceNumber} "),
                 const SizedBox(
                   height: 2,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children:  [
-                    const Text(
-                      "Date",
+                      Text(
+                      "Expiration Date: ${widget.warranty.expirationDate}",
                       style: TextStyle(fontSize: 12),
                     ),
-                    const Text(
-                      "Total bill",
+                      Text(
+                      "Company: ${widget.warranty.company}",
                       style: TextStyle(fontSize: 12),
                     ),
-                    const Text(
-                      "Status",
+                      const Text(
+                      "Status: ",
                       style: TextStyle(fontSize: 12),
                     ),
                     IconButton(
@@ -65,9 +73,10 @@ class RecentWarrntyContainer extends StatelessWidget {
                       onPressed: (){
                       Navigator.push(
                           context, MaterialPageRoute(
-                          builder: (context) => const DisplayWarrantyPage()
+                          builder: (context) =>   DisplayWarrantyPage(warranty: widget.warranty,)
                       )
-                      ); },)
+                      ); }
+                      ,)
 
                     ],
 

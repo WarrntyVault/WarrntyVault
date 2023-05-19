@@ -1,14 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:warranty/models/warranty_list.dart';
 
 import '_warrantytitle.dart';
 
-class ClientWarrantyStats extends StatelessWidget {
+class ClientWarrantyStats extends StatefulWidget {
   const ClientWarrantyStats({
-    super.key,
+    super.key, required this.Warranties,
   });
 
+  final List<WarrantyList> Warranties;
 
+
+  @override
+  State<ClientWarrantyStats> createState() => _ClientWarrantyStatsState();
+}
+
+class _ClientWarrantyStatsState extends State<ClientWarrantyStats> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,12 +30,12 @@ class ClientWarrantyStats extends StatelessWidget {
                 color: Colors.black.withOpacity(0.3),
 
                 blurRadius: 7,
-                offset: Offset(0, 4), // changes position of shadow
+                offset: const Offset(0, 4), // changes position of shadow
               ),
             ],
-            color: Color(0xffFFFFFF),
+            color: const Color(0xffFFFFFF),
 
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(16),
 
             ),
@@ -52,11 +60,11 @@ class ClientWarrantyStats extends StatelessWidget {
               BoxShadow(
                 color: Colors.black.withOpacity(0.3),
                 blurRadius: 7,
-                offset: Offset(0, 4), // changes position of shadow
+                offset: const Offset(0, 4), // changes position of shadow
               ),
             ],
-            color: Color(0xffFFFFFF),
-            borderRadius: BorderRadius.all(
+            color: const Color(0xffFFFFFF),
+            borderRadius: const BorderRadius.all(
               Radius.circular(16),
             ),
           ),
@@ -64,13 +72,13 @@ class ClientWarrantyStats extends StatelessWidget {
           width: 180,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: const [
-              Text("Total Warranties",style: TextStyle(fontSize: 14 , color: Color(0xff5B42CF) ),),
-              SizedBox(height: 20,),
-              Text("Num"),
-              SizedBox(height: 20,),
-              Text("Valid:",style: TextStyle(fontSize: 14 , color: Colors.red ),),
-              Text("Expired:",style: TextStyle(fontSize: 14 , color: Colors.green ),),
+            children:  [
+              const Text("Total Warranties ",style: TextStyle(fontSize: 14 , color: Color(0xff5B42CF) ),),
+              const SizedBox(height: 20,),
+              Text("${widget.Warranties.length}"),
+              const SizedBox(height: 20,),
+              const Text("Valid:",style: TextStyle(fontSize: 14 , color: Colors.red ),),
+              const Text("Expired:",style: TextStyle(fontSize: 14 , color: Colors.green ),),
             ],
           ),
         ),

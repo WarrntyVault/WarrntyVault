@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty/componats/_BottomNavBarState.dart';
 import 'package:warranty/pages/scan_page.dart';
-
+import 'package:intl/intl.dart';
 import '../models/AppIcons.dart';
 
 
@@ -43,6 +44,7 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
   }
 
   Future<void> warrantySetup(
+
       String name,
       String phone,
       String company,
@@ -52,9 +54,10 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
       String startDate,
       String expirationDate,
       ) async {
-
+    String? UID = FirebaseAuth.instance.currentUser?.uid;
     CollectionReference warranties = FirebaseFirestore.instance.collection("Warranties");
     warranties.add({
+      'UID': UID,
       'clientName': name,
       'clientNumber': phone,
       'company': company,
@@ -245,6 +248,31 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
           ),
           child: TextField(
             controller: startDateController,
+            onTap: () async {
+              final DateTime? pickedDate = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                builder: (BuildContext context, Widget? child) {
+                  return Theme(
+                    data: ThemeData.light().copyWith(
+                      primaryColor: Colors.purple, // Set the primary color of the date picker header and selected date
+                      accentColor: Colors.purple, // Set the color of the selected date
+                      colorScheme: const ColorScheme.light(
+                        primary: Colors.purple, // Set the color of the selected date text
+                      ),
+                    ),
+                    child: child!,
+                  );
+                },
+
+              );
+              if (pickedDate != null) {
+                final formattedDate = DateFormat('dd/MM/yyyy').format(pickedDate);
+                startDateController.text = formattedDate; // Update the text field value with the selected date
+              }
+            },
             decoration: InputDecoration(
               icon: const Icon(
                 AppIcons.date_range,
@@ -275,6 +303,31 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
           ),
           child: TextField(
             controller: expirationDateController,
+            onTap: () async {
+              final DateTime? pickedDate = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                builder: (BuildContext context, Widget? child) {
+                  return Theme(
+                    data: ThemeData.light().copyWith(
+                      primaryColor: Colors.purple, // Set the primary color of the date picker header and selected date
+                      accentColor: Colors.purple, // Set the color of the selected date
+                      colorScheme: const ColorScheme.light(
+                        primary: Colors.purple, // Set the color of the selected date text
+                      ),
+                    ),
+                    child: child!,
+                  );
+                },
+
+              );
+              if (pickedDate != null) {
+                final formattedDate = DateFormat('dd/MM/yyyy').format(pickedDate);
+                expirationDateController.text = formattedDate; // Update the text field value with the selected date
+              }
+            },
             decoration: InputDecoration(
               icon: const Icon(
                 AppIcons.date_range,

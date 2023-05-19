@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:warranty/models/warranty_list.dart';
 
 class WarrantyTitle extends StatelessWidget {
   const WarrantyTitle({
-    super.key,
+    super.key, required this.warranty,
   });
-
+final WarrantyList warranty;
   @override
   Widget build(BuildContext context) {
-    return const Text("Title");
+    return  Text(warranty.type);
   }
 }
