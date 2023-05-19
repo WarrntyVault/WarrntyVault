@@ -26,18 +26,18 @@ class _LoginPageState extends State<LoginPage> {
           password: _passwordController.text.trim());
       print('User ID: ${userCredential.user!.uid}');
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+          context, MaterialPageRoute(builder: (context) => const BottomNavBar()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
             title: Text('There is no Email with '+ _emailController.text.trim()),
-            content: Text('Please enter an exsiting Email.'),
+            content: const Text('Please enter an exsiting Email.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           ),
@@ -46,12 +46,12 @@ class _LoginPageState extends State<LoginPage> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Wrong Password'),
-            content: Text('Please enter the correct password.'),
+            title: const Text('Wrong Password'),
+            content: const Text('Please enter the correct password.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           ),
@@ -65,92 +65,95 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+        child: ListView(
+          children:[ Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
 
-            DisplayLoginImage(),
+              DisplayLoginImage(),
 
-            const SizedBox(
-              height: 50,
-            ),
-
-            Padding(
-              padding: const EdgeInsets.all(32),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-
-                children: [
-                  const Text("Let's sign you in.",
-                    style: TextStyle(
-                      fontSize: 20 ,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff5B42CF),
-                    ),
-                    textAlign: TextAlign.center,
-
-                  ),
-                  const Text("Welcome Back.",
-                    style: TextStyle(
-                      fontSize: 20 ,
-                      fontWeight: FontWeight.normal,
-                      color: Color(0xff5B42CF),
-                    ),
-                    textAlign: TextAlign.center,
-
-                  ),
-
-                  const Text("You've been missed!",
-                    style: TextStyle(
-                      fontSize: 20 ,
-                      fontWeight: FontWeight.normal,
-                      color: Color(0xff5B42CF),
-                    ),
-                    textAlign: TextAlign.center,
-
-                  ),
-
-                  const SizedBox(
-                    height: 50,
-                  ),
-
-
-                  EmailInput(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  PasswordInput(),
-                  const SizedBox(
-                    height: 50,
-                  ),
-
-                  const Text("Forget Password?",
-                    style: TextStyle(
-                      fontSize: 15 ,
-                      fontWeight: FontWeight.normal,
-                      color: Color(0xff5B42CF),
-                    ),
-                    textAlign: TextAlign.right,
-
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-
-                  SignBtn(),
-
-                  const SizedBox(
-                    height: 5,
-                  ),
-
-                  DontHaveAccount(context),
-                ],
+              const SizedBox(
+                height: 50,
               ),
-            )
+
+              Padding(
+                padding: const EdgeInsets.all(32),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+
+                  children: [
+                    const Text("Let's sign you in.",
+                      style: TextStyle(
+                        fontSize: 20 ,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff5B42CF),
+                      ),
+                      textAlign: TextAlign.center,
+
+                    ),
+                    const Text("Welcome Back.",
+                      style: TextStyle(
+                        fontSize: 20 ,
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xff5B42CF),
+                      ),
+                      textAlign: TextAlign.center,
+
+                    ),
+
+                    const Text("You've been missed!",
+                      style: TextStyle(
+                        fontSize: 20 ,
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xff5B42CF),
+                      ),
+                      textAlign: TextAlign.center,
+
+                    ),
+
+                    const SizedBox(
+                      height: 50,
+                    ),
+
+
+                    EmailInput(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    PasswordInput(),
+                    const SizedBox(
+                      height: 50,
+                    ),
+
+                    const Text("Forget Password?",
+                      style: TextStyle(
+                        fontSize: 15 ,
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xff5B42CF),
+                      ),
+                      textAlign: TextAlign.right,
+
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+
+                    SignBtn(),
+
+                    const SizedBox(
+                      height: 5,
+                    ),
+
+                    DontHaveAccount(context),
+                  ],
+                ),
+              )
 
 
 
-          ],
+            ],
+          ),
+        ]
         ),
 
       ),
@@ -226,6 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   child: TextField(
+                    obscureText: true,
                     controller: _passwordController,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -238,6 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       border: InputBorder.none,
                       hintText: 'Password',
+
                     ),
                   ),
                 );
@@ -271,10 +276,10 @@ class _LoginPageState extends State<LoginPage> {
 
   SizedBox DisplayLoginImage() {
     return SizedBox(
-            height: 100,
+            height: 250,
             child: Image.asset(
               'lib/images/img.png', // replace with your image path
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.cover,
               alignment: Alignment.topCenter,// adjust image fit to container,
             ),
           );

@@ -102,83 +102,86 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              DisplayRegisterImage(),
+          child: ListView(
+            children:[ Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                DisplayRegisterImage(),
 
-              const SizedBox(
-                height: 50,
-              ),
-
-              Padding(
-                padding: const EdgeInsets.all(32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const Text("Sign up",
-                      style: TextStyle(
-                        fontSize: 20 ,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff5B42CF),
-                      ),
-                      textAlign: TextAlign.center,
-
-                    ),
-                    const Text("After registering, start your tracking\nwarranty progress.",
-                      style: TextStyle(
-                        fontSize: 20 ,
-                        fontWeight: FontWeight.normal,
-                        color: Color(0xff5B42CF),
-                      ),
-                      textAlign: TextAlign.center,
-
-                    ),
-
-                    const SizedBox(
-                      height: 50,
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FirstNameInput(),
-                        LastNameInput(),
-                      ],
-                    ),
-
-                    const SizedBox(
-                      height: 20,
-                    ),
-
-                    EmailInput(),
-
-                    const SizedBox(
-                      height: 20,
-                    ),
-
-                    PasswordInput(),
-
-                    const SizedBox(
-                      height: 50,
-                    ),
-
-
-
-                    SignUpBtn(),
-
-                    const SizedBox(
-                      height: 5,
-                    ),
-
-                    HaveAccount(context),
-                  ],
+                const SizedBox(
+                  height: 50,
                 ),
-              )
+
+                Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Text("Sign up",
+                        style: TextStyle(
+                          fontSize: 20 ,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff5B42CF),
+                        ),
+                        textAlign: TextAlign.center,
+
+                      ),
+                      const Text("After registering, start your tracking\nwarranty progress.",
+                        style: TextStyle(
+                          fontSize: 20 ,
+                          fontWeight: FontWeight.normal,
+                          color: Color(0xff5B42CF),
+                        ),
+                        textAlign: TextAlign.center,
+
+                      ),
+
+                      const SizedBox(
+                        height: 50,
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          FirstNameInput(),
+                          LastNameInput(),
+                        ],
+                      ),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      EmailInput(),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      PasswordInput(),
+
+                      const SizedBox(
+                        height: 50,
+                      ),
 
 
 
-            ],
+                      SignUpBtn(),
+
+                      const SizedBox(
+                        height: 5,
+                      ),
+
+                      HaveAccount(context),
+                    ],
+                  ),
+                )
+
+
+
+              ],
+            ),
+          ]
           ),
         ),
 
@@ -259,6 +262,7 @@ Container PasswordInput() {
                       ),
                     ),
                     child: TextField(
+                      obscureText: true,
                       controller: _passwordController,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -373,10 +377,10 @@ Container FirstNameInput() {
 
 SizedBox DisplayRegisterImage() {
   return SizedBox(
-              height: 100,
+              height: 200,
               child: Image.asset(
                 'lib/images/img.png', // replace with your image path
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.cover,
                 alignment: Alignment.topCenter,// adjust image fit to container,
               ),
             );
