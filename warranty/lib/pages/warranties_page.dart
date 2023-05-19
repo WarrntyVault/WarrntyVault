@@ -1,10 +1,40 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty/models/AppIcons.dart';
+import 'package:warranty/models/warranty_list.dart';
 
 import '../componats/_customButton.dart';
+import 'dispaly_warranty_page.dart';
 
-class WarrantiesPage extends StatelessWidget {
+class WarrantiesPage extends StatefulWidget {
   const WarrantiesPage({Key? key}) : super(key: key);
+
+  @override
+  State<WarrantiesPage> createState() => _WarrantiesPageState();
+}
+
+class _WarrantiesPageState extends State<WarrantiesPage> {
+  List<WarrantyList> warranties = [];
+
+  final userID = FirebaseAuth.instance.currentUser?.uid;
+  @override
+  void initState() {
+    super.initState();
+
+    FirebaseFirestore.instance.collection('Warranties').where('UID', isEqualTo: userID).snapshots().listen((collection) {
+      log('col count: ${collection.docs.length}');
+      List<WarrantyList> newList = [];
+      for (final doc in collection.docs) {
+        final warranty = WarrantyList.fromMap(doc.data());
+        newList.add(warranty);
+      }
+      warranties = newList;
+       setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +55,10 @@ class WarrantiesPage extends StatelessWidget {
                 ),
 
                 Column(children: [
-                  for (int i = 0; i < 6; i++) ...[
-                    const DisplayWarranty(),
+                  for (final warranty in warranties ) ...[
+                     DisplayWarranty(
+                        warranty: warranty
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -45,7 +77,10 @@ class WarrantiesPage extends StatelessWidget {
 class DisplayWarranty extends StatefulWidget {
   const DisplayWarranty({
     Key? key,
+    required this.warranty,
   }) : super(key: key);
+
+  final WarrantyList warranty;
 
   @override
   _DisplayWarrantyState createState() => _DisplayWarrantyState();
@@ -82,11 +117,18 @@ class _DisplayWarrantyState extends State<DisplayWarranty> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(AppIcons.library_books),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>   DisplayWarrantyPage(
+                      warranty: widget.warranty,
+                    )));
+                  },
+                    child:  const Icon(AppIcons.library_books)
+                ),
                 Column(
-                  children: const [
-                    Text("Warranty Title"),
-                    Text("Ref No"),
+                  children:  [
+                    Text(widget.warranty.type),
+                    Text("Reference No: ${widget.warranty.referenceNumber}"),
                   ],
                 ),
                 Icon(
@@ -114,23 +156,23 @@ class _DisplayWarrantyState extends State<DisplayWarranty> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text("Name:"),
-                    Text("Phone:"),
+                  children:  [
+                    Text("Name: ${widget.warranty.clientName}"),
+                    Text("Phone: ${widget.warranty.clientNumber}"),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text("Type:"),
-                    Text("Status:"),
+                  children:  [
+                    Text("Type: ${widget.warranty.type}"),
+                    const Text("Status:"),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Start date:"),
-                    Text("Expiration date:"),
+                  children:  [
+                    Text("Start date: ${widget.warranty.startDate}"),
+                    Text("Expiration date: ${widget.warranty.expirationDate}"),
                   ],
                 ),
               ],

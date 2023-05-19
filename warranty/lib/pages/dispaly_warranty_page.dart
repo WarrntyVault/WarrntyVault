@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:warranty/models/warranty_list.dart';
 
-class DisplayWarrantyPage extends StatelessWidget {
-  const DisplayWarrantyPage({super.key});
+class DisplayWarrantyPage extends StatefulWidget {
+  const DisplayWarrantyPage({super.key,
+    required this.warranty});
 
+  final WarrantyList warranty;
+  @override
+  State<DisplayWarrantyPage> createState() => _DisplayWarrantyPageState();
+}
+
+class _DisplayWarrantyPageState extends State<DisplayWarrantyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +22,7 @@ class DisplayWarrantyPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: ListView(
             children: [
-              const Text("Warranty Title"),
+               Text(widget.warranty.type),
               const SizedBox(
                 height: 20,
               ),
@@ -57,9 +65,7 @@ class DisplayWarrantyPage extends StatelessWidget {
     );
   }
 
-
-  // Components of Display Warranty Page Page
-
+  // Components of Display Warranty Page
   Container DispalyPicture() {
     return Container(
               padding: const EdgeInsets.all(16),
@@ -98,25 +104,25 @@ class DisplayWarrantyPage extends StatelessWidget {
               height: 250,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("Type:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(
+                children:  [
+                  Text("Type: ${widget.warranty.type}",style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Reference Number:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(
+                  Text("Reference Number: ${widget.warranty.referenceNumber}",style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Status:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(
+                  const Text("Status:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Start Date:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(
+                  Text("Start Date: ${widget.warranty.startDate}",style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Expiration Date:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(
+                  Text("Expiration Date: ${widget.warranty.expirationDate}",style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(
                     height: 20,
                   ),
                 ],
@@ -142,17 +148,16 @@ class DisplayWarrantyPage extends StatelessWidget {
               height: 100,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("Company:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(
+                children:  [
+                  Text("Company: ${widget.warranty.company}",style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Contact Number:",style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  Text("Contact Number: ${widget.warranty.contactNumber}",style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
                 ],
               ),
             );
   }
-
 
   Container DispalyClientInfo() {
     return Container(
@@ -172,10 +177,10 @@ class DisplayWarrantyPage extends StatelessWidget {
               height: 100,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("Name: ", style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
-                  SizedBox(height: 20,),
-                  Text("Phone Number: ", style: TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                children:  [
+                  Text("Name: ${widget.warranty.clientName}", style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
+                  const SizedBox(height: 20,),
+                  Text("Phone Number: ${widget.warranty.clientNumber} ", style: const TextStyle(fontSize: 16,color: Color(0xff5B42CF) ),),
                 ],
               ),
             );

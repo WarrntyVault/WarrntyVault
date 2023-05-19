@@ -1,6 +1,9 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class WarrantyList {
+  final String UID;
   final String clientName;
   final String clientNumber;
   final String company;
@@ -11,6 +14,7 @@ class WarrantyList {
   final String expirationDate;
 
   WarrantyList({
+    required this.UID,
     required this.clientName,
     required this.clientNumber,
     required this.company,
@@ -23,10 +27,11 @@ class WarrantyList {
 
 
 
-  static List<WarrantyList> warranties = [];
+
 
   Map<String, dynamic> toMap() {
     return {
+      'UID': UID,
       'clientName': clientName,
       'clientNumber': clientNumber,
       'company': company,
@@ -41,6 +46,7 @@ class WarrantyList {
 
   factory WarrantyList.fromMap(Map<String, dynamic> map) {
     return WarrantyList(
+      UID: map['UID'],
       clientName: map['clientName'],
       clientNumber: map['clientNumber'],
       company: map['company'],
