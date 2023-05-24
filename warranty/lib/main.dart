@@ -5,6 +5,8 @@ import 'package:warranty/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'componats/_BottomNavBarState.dart';
+import 'package:js/js.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: BottomNavBar(),
+      home: GetStartedPage(),
     );
   }
 }

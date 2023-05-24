@@ -130,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         textAlign: TextAlign.center,
 
                       ),
-                      const Text("After registering, start your tracking\nwarranty progress.",
+                      const Text("After registering, start your warranty\ntracking progress.",
                         style: TextStyle(
                           fontSize: 20 ,
                           fontWeight: FontWeight.normal,
