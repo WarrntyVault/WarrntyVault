@@ -258,7 +258,7 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                   return Theme(
                     data: ThemeData.light().copyWith(
                       primaryColor: Colors.purple, // Set the primary color of the date picker header and selected date
-                      accentColor: Colors.purple, // Set the color of the selected date
+
                       colorScheme: const ColorScheme.light(
                         primary: Colors.purple, // Set the color of the selected date text
                       ),
@@ -313,7 +313,6 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                   return Theme(
                     data: ThemeData.light().copyWith(
                       primaryColor: Colors.purple, // Set the primary color of the date picker header and selected date
-                      accentColor: Colors.purple, // Set the color of the selected date
                       colorScheme: const ColorScheme.light(
                         primary: Colors.purple, // Set the color of the selected date text
                       ),
