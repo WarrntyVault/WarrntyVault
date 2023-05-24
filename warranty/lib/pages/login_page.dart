@@ -4,6 +4,7 @@ import 'package:warranty/pages/getStarted_page.dart';
 import 'package:warranty/pages/register_page.dart';
 
 import '../componats/_BottomNavBarState.dart';
+import '../models/ImageFlyweightFactory.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -14,11 +15,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final ImageFlyweightFactory flyweightFactory = ImageFlyweightFactory();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _signInWithEmailAndPassword() async {
+
+
+
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
@@ -274,15 +279,18 @@ class _LoginPageState extends State<LoginPage> {
                 );
   }
 
-  SizedBox DisplayLoginImage() {
-    return SizedBox(
-            height: 250,
-            child: Image.asset(
-              'lib/images/img.png', // replace with your image path
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,// adjust image fit to container,
-            ),
-          );
+  Container DisplayLoginImage() {
+    final image = flyweightFactory.getImage('lib/images/img.png');
+
+    return Container(
+      height: 250,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: image!.image, // Use the shared image
+        ),
+      ),
+    );
   }
 }
 

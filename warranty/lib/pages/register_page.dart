@@ -5,6 +5,8 @@ import 'package:warranty/pages/getStarted_page.dart';
 import 'package:warranty/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../models/ImageFlyweightFactory.dart';
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
+  final ImageFlyweightFactory flyweightFactory = ImageFlyweightFactory();
 
   ////// Firebase Register User to database
   final _formKey = GlobalKey<FormState>();
@@ -375,15 +377,18 @@ Container FirstNameInput() {
 }
 
 
-SizedBox DisplayRegisterImage() {
-  return SizedBox(
-              height: 200,
-              child: Image.asset(
-                'lib/images/img.png', // replace with your image path
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,// adjust image fit to container,
-              ),
-            );
+Container DisplayRegisterImage() {
+  final image = flyweightFactory.getImage('lib/images/img.png');
+
+  return Container(
+    height: 200,
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        fit: BoxFit.cover,
+        image: image!.image, // Use the shared image
+      ),
+    ),
+  );
 }
 }
 

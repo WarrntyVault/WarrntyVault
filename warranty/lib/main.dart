@@ -4,6 +4,7 @@ import 'package:warranty/pages/getStarted_page.dart';
 import 'package:warranty/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:warranty/pages/login_page.dart';
 import 'componats/_BottomNavBarState.dart';
 
 void main() async {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: BottomNavBar(),
+
+      home: GetStartedPage(),
     );
   }
 }
