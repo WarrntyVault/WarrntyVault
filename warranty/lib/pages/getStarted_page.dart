@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:warranty/pages/login_page.dart';
 
+import '../models/ImageFlyweightFactory.dart';
+
 class GetStartedPage extends StatefulWidget {
   const GetStartedPage({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class GetStartedPage extends StatefulWidget {
 
 class _GetStartedPageState extends State<GetStartedPage> {
   bool isLoading = false;
-
+  final ImageFlyweightFactory flyweightFactory = ImageFlyweightFactory();
   void _navigateToLoginPage() {
     setState(() {
       isLoading = true;
@@ -96,14 +98,16 @@ class _GetStartedPageState extends State<GetStartedPage> {
   }
 
   Container DisplayImage() {
+    final image = flyweightFactory.getImage('lib/images/img.png');
+
     return Container(
-                    height: 400,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('lib/images/img.png'),
-                      ),
-                    ),
-                  );
+      height: 400,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: image!.image, // Use the shared image
+        ),
+      ),
+    );
   }
 }
