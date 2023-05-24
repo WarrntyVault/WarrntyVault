@@ -45,7 +45,6 @@ app.*.map.json
 
 
 
-
 # Flutter specific
 
 .flutter-plugins-version

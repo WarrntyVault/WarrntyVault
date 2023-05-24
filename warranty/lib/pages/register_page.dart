@@ -17,6 +17,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final ImageFlyweightFactory flyweightFactory = ImageFlyweightFactory();
 
+
+
   ////// Firebase Register User to database
   final _formKey = GlobalKey<FormState>();
   final _firstNameController = TextEditingController();
@@ -128,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         textAlign: TextAlign.center,
 
                       ),
-                      const Text("After registering, start your tracking\nwarranty progress.",
+                      const Text("After registering, start your warranty\ntracking progress.",
                         style: TextStyle(
                           fontSize: 20 ,
                           fontWeight: FontWeight.normal,
@@ -377,19 +379,21 @@ Container FirstNameInput() {
 }
 
 
-Container DisplayRegisterImage() {
-  final image = flyweightFactory.getImage('lib/images/img.png');
 
-  return Container(
-    height: 200,
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        fit: BoxFit.cover,
-        image: image!.image, // Use the shared image
+  Container DisplayRegisterImage() {
+    final image = flyweightFactory.getImage('lib/images/img.png');
+
+    return Container(
+      height: 200,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: image!.image, // Use the shared image
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
+
 }
 
 

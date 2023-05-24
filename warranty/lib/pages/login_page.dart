@@ -278,9 +278,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 );
   }
-
   Container DisplayLoginImage() {
     final image = flyweightFactory.getImage('lib/images/img.png');
+
 
     return Container(
       height: 250,
