@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const AddWarrantyButton(),
                     const SizedBox(
-                      width: 20,
+                      width: 15,
                     ),
                   for (final warranty in warranties ) ...[
                 WarrantyContainer(

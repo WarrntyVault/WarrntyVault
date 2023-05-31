@@ -15,15 +15,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  // Flyweight object for image
   final ImageFlyweightFactory flyweightFactory = ImageFlyweightFactory();
 
+  // Email and password controllers to store values
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+
+  //Authentication code for login page
   Future<void> _signInWithEmailAndPassword() async {
-
-
-
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
@@ -66,6 +68,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 
+  //Desgin the log in page
   @override
   Widget build(BuildContext context) {
     return Scaffold(

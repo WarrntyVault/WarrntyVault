@@ -19,20 +19,26 @@ class RecentWarrnties extends StatefulWidget {
 }
 
 class _RecentWarrntiesState extends State<RecentWarrnties> {
+
+  // declare a list to store user warranties
   List<WarrantyList> warranties = [];
 
+  // get user ID form firebase
   final userID = FirebaseAuth.instance.currentUser?.uid;
+
   @override
   void initState() {
     super.initState();
-
     FirebaseFirestore.instance.collection('Warranties').where('UID', isEqualTo: userID).snapshots().listen((collection) {
       log('col count: ${collection.docs.length}');
+
       List<WarrantyList> newList = [];
+
       for (final doc in collection.docs) {
         final warranty = WarrantyList.fromMap(doc.data());
         newList.add(warranty);
       }
+
       warranties = newList;
       setState(() {});
     });
@@ -40,8 +46,6 @@ class _RecentWarrntiesState extends State<RecentWarrnties> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
@@ -55,10 +59,6 @@ class _RecentWarrntiesState extends State<RecentWarrnties> {
         borderRadius: const BorderRadius.only(topRight: Radius.circular(32), topLeft: Radius.circular(32), bottomLeft: Radius.circular(0), bottomRight: Radius.circular(0),),),
       child: Column(
         children: [
-
-
-
-
           ////////////////////////////////////
           const SizedBox(height: 20,),
           const  Text(

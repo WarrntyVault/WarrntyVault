@@ -58,11 +58,11 @@ class _RecentWarrantyContainerState extends State<RecentWarrantyContainer> {
                   children:  [
                       Text(
                       "Expiration Date: ${widget.warranty.expirationDate}",
-                      style: TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 12),
                     ),
                       Text(
                       "Company: ${widget.warranty.company}",
-                      style: TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 12),
                     ),
                       const Text(
                       "Status: ",

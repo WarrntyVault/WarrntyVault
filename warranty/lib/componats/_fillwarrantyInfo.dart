@@ -17,6 +17,8 @@ class FillWarrantyInfo extends StatefulWidget {
   State<FillWarrantyInfo> createState() => _FillWarrantyInfoState();
 }
 
+// inputs for warranty info
+
 class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
   //client info
   final nameController = TextEditingController();
@@ -42,6 +44,8 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
     expirationDateController.dispose();
     super.dispose();
   }
+
+
 
   Future<void> warrantySetup(
       String name,
@@ -77,6 +81,8 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
+            // Full name input
             Container(
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
@@ -101,6 +107,8 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                 ),
               ),
             ),
+
+            // Phone Number input
             Container(
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
@@ -109,6 +117,7 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                 ),
               ),
               width: 225,
+
               child: TextField(
                 controller: phoneController,
                 decoration: InputDecoration(
@@ -127,12 +136,16 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ],
         ),
+
         const SizedBox(
           height: 10,
         ),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
+            // Company input
             Container(
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
@@ -157,6 +170,8 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                 ),
               ),
             ),
+
+            // Contact Number input
             Container(
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
@@ -183,9 +198,12 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ],
         ),
+
         const SizedBox(
           height: 10,
         ),
+
+        // reference number input
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
@@ -209,9 +227,12 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ),
         ),
+
         const SizedBox(
           height: 10,
         ),
+
+        // Device type input
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
@@ -235,9 +256,13 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ),
         ),
+
         const SizedBox(
           height: 10,
         ),
+
+
+        // Start date picker
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
@@ -257,7 +282,6 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
                   return Theme(
                     data: ThemeData.light().copyWith(
                       primaryColor: Colors.purple, // Set the primary color of the date picker header and selected date
-
                       colorScheme: const ColorScheme.light(
                         primary: Colors.purple, // Set the color of the selected date text
                       ),
@@ -290,9 +314,14 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ),
         ),
+
+
         const SizedBox(
           height: 10,
         ),
+
+
+        // expiration date picker
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
@@ -344,9 +373,15 @@ class _FillWarrantyInfoState extends State<FillWarrantyInfo> {
             ),
           ),
         ),
+
+        ////////////////////////////////////////////////////////////////
         const SizedBox(
           height: 10,
         ),
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+
+
         SizedBox(
           width: 200,
           height: 40,
